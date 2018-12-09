@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnLogin;
     private TextView mTvResult;
 
-    private String url ="http://192.168.43.124:18080/web/MyServlet";
+    private String url ="http://192.168.1.101:8080/member/regist2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,18 +109,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d(TAG, "user:" + user);
 
                 try {
-                    final String result = httpUtils.login(url, user);
+                    final String result = httpUtils.login(url, username,password);
                     Log.d(TAG, "结果:" + result);
                     //更新UI,在UI线程中
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if("SUCCESS".equals(result)){
+                            if("success".equals(result)){
 
                                 mTvResult.setText("登录成功");
 
                             }else{
-                                mTvResult.setText("登录失败");
+                                mTvResult.setText("甘兆冬大傻逼");
                             }
                         }
                     });
